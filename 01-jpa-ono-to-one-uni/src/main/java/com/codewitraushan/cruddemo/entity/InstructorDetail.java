@@ -1,4 +1,4 @@
-package com.codewitraushan.cruddemo;
+package com.codewitraushan.cruddemo.entity;
 
 import jakarta.persistence.*;
 
@@ -10,7 +10,6 @@ public class InstructorDetail {
 
 
     //Define the fields
-
     //annotate the fields with db column name
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
