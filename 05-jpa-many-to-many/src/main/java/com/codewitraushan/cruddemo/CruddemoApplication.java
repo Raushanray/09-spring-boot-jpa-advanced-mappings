@@ -22,9 +22,32 @@ public class CruddemoApplication {
 			//createCourseAndStudents(appDAO);
 
 			//findCourseAndStudents(appDAO);
-			findStudentAndCourses(appDAO);
+			//findStudentAndCourses(appDAO);
+
+			addMoreCoursesForStudents(appDAO);
 		};
 
+
+	}
+
+	private void addMoreCoursesForStudents(AppDAO appDAO) {
+
+		int theId = 2;
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+
+		//create more course
+		Course tempCourse1 = new Course("Rubik's cube - How to speed cube");
+		Course tempCourse2 = new Course("Atari 2600 - Game Development");
+
+		//add course to student
+		tempStudent.addCourse(tempCourse1);
+		tempStudent.addCourse(tempCourse2);
+
+		System.out.println("Saving student : " + tempStudent);
+		System.out.println("associated courses : " + tempStudent.getCourses());
+
+		appDAO.update(tempStudent);
+		System.out.println("Done!!");
 
 	}
 
